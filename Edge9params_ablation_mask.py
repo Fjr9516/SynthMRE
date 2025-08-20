@@ -313,11 +313,14 @@ def ssim_loss(pred, target, window_size=11, size_average=True, mask=None):
 # Hybrid Loss Function
 class HybridLossDynamic(nn.Module):
     def __init__(self, alpha=1.0, beta=1.0, gamma=0.7):
-        """
-        alpha: peso MSELoss
-        beta:  peso SSIMLoss
-        gamma: peso GMELoss
-        """
+        '''
+         A hybrid loss that combines:
+        - Mean Squared Error (MSE)
+        - Structural Similarity Index (SSIM)
+        - Gradient Magnitude Edge (GME) loss
+
+        The weights for each component are tunable via alpha, beta, and gamma.
+        '''
         super(HybridLossDynamic, self).__init__()
         self.alpha = alpha
         self.beta = beta
