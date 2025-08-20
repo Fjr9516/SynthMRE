@@ -308,7 +308,7 @@ class HybridLossDynamic(nn.Module):
         '''
         super(HybridLossDynamic, self).__init__()
         self.mse = nn.MSELoss()
-        self.gme = GMELoss3D()  # già definita nel tuo codice
+        self.gme = GMELoss3D()
         self.alpha = alpha
         self.beta = beta
         self.gamma = gamma
